@@ -29,7 +29,6 @@ phpunit.phar
 
 # runtime
 /runtime/*
-/tests
 
 
 
