@@ -1,0 +1,21 @@
+.socials a {
+	behavior: url(js/PIE.htc)/*tpa=http://livedemo00.template-help.com/wt_48771/css/js/PIE.htc*/;
+	position: relative;
+	margin-left: 15px;
+}
+
+#form .invalid .error-message, 
+#form .empty .empty-message {
+	display: block;
+
+}
+
+#form .error-message, 
+#form .empty-message {
+	display: none;
+}
+
+
+a.gal:hover img {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=20);
+}

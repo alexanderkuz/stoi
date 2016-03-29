@@ -1,0 +1,129 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.pagination-right,.summary
+{
+    text-align: right;
+}
+.grid-view, .detail-view
+{
+    font-size: 12px;
+}
+
+.detail-view th
+{
+    width: 40%;
+}
+.grid-view thead
+{
+    font-size: 13px;
+}
+.form-control, .ct-form-control
+{
+    font-size: 12px;
+    height: 26px;
+}
+.bs-popover .popover
+{
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 10px;
+    margin-left: 0;
+    margin-top:15px;
+    font-size: 12px;
+    z-index: 1000;
+}
+.bs-popover .popover.left > .arrow {
+    top: 65px;
+}
+
+.filter-container .ct-form-control
+{
+    min-width: 8%;
+}
+
+.list-view .grid-view
+{
+    padding-top: 10px;
+}
+.list-view .items .row
+{
+    padding-bottom: 20px;
+}
+
+
+.list-view .col-md-9
+{
+    padding-left: 5px;
+}
+.container-fluid
+{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.container
+{
+    width:1200px;
+}
+.navbar-collapse>.navbar-nav>li:first-child>a
+{
+ /*   padding-left: 0;*/
+}
+
+.label {
+    font-size: 85%;
+}
+hr
+{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.popover-content .btn-link
+{
+    padding: 0;
+    font-size: 12px;
+    border-width: 0;
+    line-height: 17.15px;
+
+
+}
+
+    .modal-dialog {
+        width: 800px;
+        margin: 30px auto;
+    }
+.modal-dialog blockquote
+{
+    font-size: 14px;
+    padding: 5px 20px;
+}
+
+.form-group .input-group-addon
+{
+    font-size: 10px;
+
+}
+
+
+.page-header {
+     padding-bottom: 0;
+    margin: 0 0 10px;
+}
