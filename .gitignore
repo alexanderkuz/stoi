@@ -28,7 +28,7 @@ phpunit.phar
 /phpunit.xml
 
 # runtime
-/runtime
+/runtime/*
 /tests
 
 
