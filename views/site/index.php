@@ -37,14 +37,14 @@ $this->registerJs("$(document).ready(function(){
 <div class="container">
     <div class="row">
         <div class="grid_4">
-            <img src="/stroiytru/upload/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
+            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
             <h3>Обще строительные работы</h3>
             <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности...</div><br>
             <a href="#" class="btn">подробнее</a>
         </div>
 
         <div class="grid_4">
-            <img src="/stroiytru/upload/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
+            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
             <h3>Потолки</h3>
             <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
 
@@ -52,7 +52,7 @@ $this->registerJs("$(document).ready(function(){
 
         </div>
         <div class="grid_4">
-            <img src="/stroiytru/upload/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
+            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
             <h3>Стены</h3>
             <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
             <a href="#" class="btn">подробнее</a>
@@ -61,14 +61,14 @@ $this->registerJs("$(document).ready(function(){
 
 
         <div class="grid_4">
-            <img src="/stroiytru/upload/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
+            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
             <h3>Обще строительные работы</h3>
             <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности...</div><br>
             <a href="#" class="btn">подробнее</a>
 
         </div>
         <div class="grid_4">
-            <img src="/stroiytru/upload/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
+            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
             <h3>Потолки</h3>
             <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
 
@@ -76,7 +76,7 @@ $this->registerJs("$(document).ready(function(){
 
         </div>
         <div class="grid_4">
-            <img src="/stroiytru/upload/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
+            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
             <h3>Стены</h3>
             <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
             <a href="#" class="btn">подробнее</a>
