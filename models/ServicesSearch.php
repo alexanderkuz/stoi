@@ -92,9 +92,11 @@ class ServicesSearch extends Services
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder'=>'sort asc']
+            'sort' => ['defaultOrder'=>['sort'=>SORT_ASC]]
+            
         ]);
 
+        
         $this->load($params);
 
         if (!$this->validate()) {
