@@ -9,9 +9,9 @@ use yii\grid\GridView;
 $this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;//111123
 ?>
-<div class="user-index">
+<div class="col-md-12">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
 
     <p>
         <?= Html::a(Yii::t('app', 'Create User'), ['create'], ['class' => 'btn btn-success']) ?>
