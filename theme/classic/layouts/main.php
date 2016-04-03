@@ -82,19 +82,19 @@ AppAsset::register($this);
                     <div class="caption fadeIn">
                         <h2>Мы Строим Уют в том месте,<br>которое Вы называете - Дом
                         </h2>
-                        <a href="#">Подробнее</a>
+                       <? // <a href="#">Подробнее</a> ?>
                     </div>
                 </div>
                 <div data-src="<?= Yii::getAlias('@web'); ?>/images/slide1.jpg" >
                     <div class="caption fadeIn">
                         <h2>Мы Строим Уют в том месте,<br>которое Вы называете - Дом</h2>
-                        <a href="#">Подробнее</a>
+                        <? // <a href="#">Подробнее</a> ?>
                     </div>
                 </div>
                 <div data-src="<?= Yii::getAlias('@web'); ?>/images/slide3.jpg" >
                     <div class="caption fadeIn">
                         <h2>Мы Строим Уют в том месте,<br>которое Вы называете - Дом</h2>
-                        <a href="#">Подробнее</a>
+                        <? // <a href="#">Подробнее</a> ?>
                     </div>
                 </div>
             </div>

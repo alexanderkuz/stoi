@@ -2,14 +2,9 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
-use app\components\Makedir\Makedir;
 use yii\web\View;
 use yii\widgets\ListView;
-use yii\widgets\ActiveForm;
 
-use yii\imagine\Image;
-use Imagine\Gd;
-use Imagine\Image\Box;
 
 
 
@@ -35,61 +30,35 @@ $this->registerJs("$(document).ready(function(){
 ?>
 
 <div class="container">
-    <div class="row">
-        <div class="grid_4">
-            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
-            <h3>Обще строительные работы</h3>
-            <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности...</div><br>
-            <a href="#" class="btn">подробнее</a>
-        </div>
 
-        <div class="grid_4">
-            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
-            <h3>Потолки</h3>
-            <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
+        <?
+//<div class="grid_4">
+     echo  ListView::widget([
+            'dataProvider' => $dataProvider,
+            'layout' => "{items}",
+            'itemView' => '_list_services',
+         'options' => [
+             'id' => false,
+             'class'=>'row'
 
-            <a href="#" class="btn">подробнее</a>
-
-        </div>
-        <div class="grid_4">
-            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
-            <h3>Стены</h3>
-            <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
-            <a href="#" class="btn">подробнее</a>
-
-        </div>
-
-
-        <div class="grid_4">
-            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
-            <h3>Обще строительные работы</h3>
-            <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности...</div><br>
-            <a href="#" class="btn">подробнее</a>
-
-        </div>
-        <div class="grid_4">
-            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
-            <h3>Потолки</h3>
-            <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
-
-            <a href="#" class="btn">подробнее</a>
-
-        </div>
-        <div class="grid_4">
-            <img src="uploads/sc/1416715925/thumbnails/1416715925.jpg" alt="" class="img_inner">
-            <h3>Стены</h3>
-            <div>Компания "СтройЮт" предлагает все виды общестроительных работ. Ремонтно-строительная компания "СтройЮт"  проводит демонтаж напольных покрытий любой сложности... </div><br>
-            <a href="#" class="btn">подробнее</a>
-
-        </div>
+         ],
+         'itemOptions'=>
+             [
+                 'tag'=>false,
+             ],
+        ]);
+        ?>
 
     </div
-</div></div>
+
+</div>
+<? /*
     <div class="gray_block">
         <div class="container">
             <div class="row">
 
 
+                
             </div>
         </div>
     </div>
@@ -98,7 +67,7 @@ $this->registerJs("$(document).ready(function(){
 
         </div>
     </div>
-
+*/?>
 
 
 

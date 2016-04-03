@@ -124,11 +124,11 @@ $this->params['breadcrumbs']=Services::getListBreadcrumb($id,$this->params['brea
                 'format'=>'html',
 
             ],
-            [
+          /*  [
                 'attribute'=>'detail_text',
                 'format'=>'html',
 
-            ],
+            ],*/
             //  'title',
             //  'keywords',
             //  'description',

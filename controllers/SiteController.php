@@ -7,7 +7,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\Forms\ContactForm;
-
+use app\models\ServicesSearch;
+use yii\data\ActiveDataProvider;
+use app\models\Services;
 
 class SiteController extends Controller
 {
@@ -59,8 +61,16 @@ class SiteController extends Controller
             'pagination' => false,
         ]);*/
 
-        return $this->render('index'
 
+        $dataProvider = new ActiveDataProvider([
+            'query' => Services::find()->where(['active' => Services::ACTIVE,'parent_id'=>0])->orderBy('sort asc'),
+            'pagination' => false,
+        ]);
+
+
+        return $this->render('index',[
+                'dataProvider'=>$dataProvider,
+            ]
         );
     }
 

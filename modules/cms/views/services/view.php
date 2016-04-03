@@ -62,8 +62,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'path_picture',
                 'value'=>$model->path_picture.$model->picture,//Yii::getAlias('@web')
             ],
-            'preview_text:ntext',
-            'detail_text:ntext',
+
+            [
+                'attribute'=>'preview_text',
+                'format'=>'html',
+
+            ],
+            [
+                'attribute'=>'detail_text',
+                'format'=>'html',
+
+            ],
             'title',
             'keywords',
             'description',

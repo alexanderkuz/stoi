@@ -9,7 +9,7 @@
  * @link http://www.2amigos.us/
  */
 return [
-    'height' => 60,
+    'height' => 80,
     'toolbarGroups' => [
 
         ['name' => 'clipboard', 'groups' => ['mode', 'undo', 'clipboard']],
