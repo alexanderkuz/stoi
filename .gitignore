@@ -30,7 +30,7 @@ phpunit.phar
 # runtime
 /runtime/*
 
-/tests
+/cgi-bin
 
 
 
