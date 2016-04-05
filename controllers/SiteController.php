@@ -94,9 +94,9 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionServices()
+    public function actionServices($id=0)
     {
-        return $this->render('default');
+        return $this->render('services');
     }
 
 }
