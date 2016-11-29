@@ -13,6 +13,7 @@ use app\assets\AppAsset;
 //use yii\bootstrap\NavBar;
 
 AppAsset::register($this);
+//$this->registerJsFile('js/camera.js',['position'=>View::POS_END]);
 ?>
 <?php $this->beginPage() ?>
 

@@ -33,6 +33,7 @@ class AppAsset extends AssetBundle
         'js/jquery.easing.1.3.js',
         'js/jquery.mobilemenu.js',
         'js/jquery.ui.totop.js',
+        'js/camera.js',
 
         //camera
     ];
@@ -41,5 +42,5 @@ class AppAsset extends AssetBundle
       //  'yii\bootstrap\BootstrapAsset', YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'
         'app\assets\Ie9Asset',
     ];
-    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
+    public $jsOptions = ['position' => \yii\web\View::POS_END];
 }

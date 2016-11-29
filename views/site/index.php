@@ -10,7 +10,7 @@ use yii\widgets\ListView;
 
 $this->title =  Yii::$app->name;
 
-$this->registerJsFile('js/camera.js');
+
 $this->registerCssFile(Yii::getAlias('@web').'/css/camera.css');
 $this->registerJs("$(document).ready(function(){
         jQuery('#camera_wrap').camera({
@@ -25,7 +25,7 @@ $this->registerJs("$(document).ready(function(){
         });
         $().UItoTop({ easingType: 'easeOutQuart' });
 
-    });",View::POS_HEAD ,'camera_wrap');
+    });",View::POS_END ,'camera_wrap');
 //'js/camera.js'  'css/camera.css'
 ?>
 

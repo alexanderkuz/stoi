@@ -28,5 +28,5 @@ class Ie9Asset extends AssetBundle
         'js/jquery.mobile.customized.min.js',
     ];
     public $jsOptions = ['condition' => '(gt IE 9)|!(IE)'
-    ,'position' => \yii\web\View::POS_HEAD];
+    ,'position' => \yii\web\View::POS_END];
 }

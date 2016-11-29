@@ -61,17 +61,18 @@ class SiteController extends Controller
             'pagination' => false,
         ]);*/
 
-
         $dataProvider = new ActiveDataProvider([
             'query' => Services::find()->where(['active' => Services::ACTIVE,'parent_id'=>0])->orderBy('sort asc'),
             'pagination' => false,
         ]);
 
 
+
         return $this->render('index',[
                 'dataProvider'=>$dataProvider,
             ]
         );
+
     }
 
 
@@ -98,5 +99,7 @@ class SiteController extends Controller
     {
         return $this->render('services');
     }
+
+
 
 }

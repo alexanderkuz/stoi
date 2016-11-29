@@ -37,11 +37,12 @@ use yii\caching\TagDependency;
  */
 abstract class Schema extends Object
 {
-    /**
-     * The following are the supported abstract column data types.
-     */
+    // The following are the supported abstract column data types.
     const TYPE_PK = 'pk';
+    const TYPE_UPK = 'upk';
     const TYPE_BIGPK = 'bigpk';
+    const TYPE_UBIGPK = 'ubigpk';
+    const TYPE_CHAR = 'char';
     const TYPE_STRING = 'string';
     const TYPE_TEXT = 'text';
     const TYPE_SMALLINT = 'smallint';
@@ -439,7 +440,7 @@ abstract class Schema extends Object
      * Executes the INSERT command, returning primary key values.
      * @param string $table the table that new rows will be inserted into.
      * @param array $columns the column data (name => value) to be inserted into the table.
-     * @return array primary key values or false if the command fails
+     * @return array|false primary key values or false if the command fails
      * @since 2.0.4
      */
     public function insert($table, $columns)
@@ -519,7 +520,7 @@ abstract class Schema extends Object
      */
     public function quoteColumnName($name)
     {
-        if (strpos($name, '(') !== false || strpos($name, '[[') !== false || strpos($name, '{{') !== false) {
+        if (strpos($name, '(') !== false || strpos($name, '[[') !== false) {
             return $name;
         }
         if (($pos = strrpos($name, '.')) !== false) {
@@ -528,7 +529,9 @@ abstract class Schema extends Object
         } else {
             $prefix = '';
         }
-
+        if (strpos($name, '{{') !== false) {
+            return $name;
+        }
         return $prefix . $this->quoteSimpleColumnName($name);
     }
 

@@ -18,13 +18,8 @@ $config = [
            'components' =>[
                'errorHandler' => [
                    'class'=>'yii\base\ErrorHandeler',
-                   //'errorAction' => 'cms/default/error',
                ],
-
            ],
-          // 'errorAction' => 'cms/default/error'
-        //   'errorAction' => 'cms/default/error',
-          // 'errorAction'=>'/cms/default/error'
         ],
     ],
 
@@ -42,7 +37,6 @@ $config = [
                     '@app/modules' => '@app/theme/classic/modules',
                 ],
             ],
-
         ],
 
         'urlManager' => [
@@ -61,9 +55,9 @@ $config = [
                     'cms/services'=>'cms/services/index',
                     'cms/<action>'=>'cms/default/<action>',
                     '<action>' => 'site/<action>',
-                '<controller:(post|comment)>/<id:\d+>/<action:(create|update|delete)>' => '<controller>/<action>',
-                '<controller:(post|comment)>/<id:\d+>' => '<controller>/view',
-                '<controller:(post|comment)>s' => '<controller>/index',
+                    '<controller:(post|comment)>/<id:\d+>/<action:(create|update|delete)>' => '<controller>/<action>',
+                    '<controller:(post|comment)>/<id:\d+>' => '<controller>/view',
+                    '<controller:(post|comment)>s' => '<controller>/index',
                 ]
         ],
 
@@ -71,6 +65,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'weC5RcfYWZmKzxXroJJb5TRySMG1iP81',
         ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -90,9 +85,11 @@ $config = [
             'loginUrl' => ['cms/default/login'],
 
         ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
@@ -100,6 +97,7 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => false,
         ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -109,6 +107,7 @@ $config = [
                 ],
             ],
         ],
+
         'db' => require(__DIR__ . '/db.php'),
 
         'i18n' => [
@@ -124,9 +123,10 @@ $config = [
                 ],
             ],
         ],
-
     ],
+
     'params' => $params,
+
 ];
            
 

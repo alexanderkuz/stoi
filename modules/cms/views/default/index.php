@@ -26,6 +26,12 @@
                 }
 
             }?>
+            <p>
+
+        <pre><? print_r(\Yii::$app->bootstrap);?></pre>
+        <pre><? print_r(get_class_methods (\Yii::$app->controller->module));?></pre>
+        <pre><? print_r(\Yii::$app->controller->module->testMethod()); ?></pre>
+        </p>
         </p>
         <p>
             This is the view content for action "<?= $this->context->action->id ?>".

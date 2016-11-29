@@ -3,8 +3,11 @@
 namespace app\modules\cms;
 use Yii;
 
+
 class cms extends \yii\base\Module
 {
+    use cmstrait;
+
     public $controllerNamespace = 'app\modules\cms\controllers';
 
 
@@ -16,5 +19,7 @@ class cms extends \yii\base\Module
         Yii::$app->errorHandler->errorAction = 'cms/default/error';
 
     }
+
+
 
 }
