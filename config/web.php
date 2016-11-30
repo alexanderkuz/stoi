@@ -23,6 +23,42 @@ $config = [
         ],
     ],
 
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\Controller',
+            'access' => ['@'], //глобальный доступ к фаил менеджеру @ - для авторизорованных , ? - для гостей , чтоб открыть всем ['@', '?']
+            'disabledCommands' => ['netmount'], //отключение ненужных команд https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
+
+            'roots' => [
+                [
+                    'baseUrl'=>'@web',
+                    'basePath'=>'@webroot',
+                    'path' => 'uploads',
+                    'name' => 'Глобальные',
+                  //  'access' => ['read' => '@', 'write' => '@'],
+                ],
+               [
+                    'class' => 'mihaildev\elfinder\volume\UserPath',
+                    'path'  => 'uploads/user/user_{id}',
+                    'name'  => 'Мои Документы',
+
+
+                ],
+            ],
+           /* 'watermark' => [
+
+                'source'         => 'uploads/logo.png', // Path to Water mark image//__DIR__.
+                'marginRight'    => 5,          // Margin right pixel
+                'marginBottom'   => 5,          // Margin bottom pixel
+                'quality'        => 75,         // JPEG image save quality
+                'transparency'   => 70,         // Water mark image transparency ( other than PNG )
+                'targetType'     => IMG_GIF|IMG_JPG|IMG_PNG|IMG_WBMP, // Target image formats ( bit-field )
+                'targetMinPixel' => 200         // Target image minimum pixel size
+            ],*/
+
+        ]
+    ],
+
     'components' => [
         'layout'=>'main',
         'view' => [
@@ -39,9 +75,18 @@ $config = [
             ],
         ],
 
+        'formatter' => [
+            'timeZone' => 'Europe/Moscow',
+            'dateFormat' => 'd.MM.Y',
+            'timeFormat' => 'H:mm:ss',
+            //'datetimeFormat' => 'd.MM.Y HH:mm',
+            'datetimeFormat' => 'php:Y-m-d H:i:s',
+        ],
+
         'urlManager' => [
             'enablePrettyUrl' => true,
            // 'class'=>'yii\web\UrlManager',
+
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'suffix'=>'/',
@@ -54,7 +99,9 @@ $config = [
                     'cms/user'=>'cms/user/index',
                     'cms/services'=>'cms/services/index',
                     'cms/<action>'=>'cms/default/<action>',
+                //    '<_m:debug>/<_c:\w+>/<_a:\w+>' => '<_m>/<_c>/<_a>',
                     '<action>' => 'site/<action>',
+
                     '<controller:(post|comment)>/<id:\d+>/<action:(create|update|delete)>' => '<controller>/<action>',
                     '<controller:(post|comment)>/<id:\d+>' => '<controller>/view',
                     '<controller:(post|comment)>s' => '<controller>/index',
@@ -103,7 +150,7 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],//,'trace','info'
+                    'levels' => ['error', 'warning','trace','info'],//,'trace','info'
                 ],
             ],
         ],
@@ -136,7 +183,8 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        'allowedIPs' => ['127.0.0.1', '::1',  '*'] ,
+        'allowedIPs' => ['127.0.0.1', '::1',  '95.220.73.123'] ,//'*',
+      //  'enableDebugLogs'=>true,
         'panels' => [
             'views' => ['class' => 'app\panels\ViewsPanel'],
         ],
@@ -145,7 +193,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        'allowedIPs' => ['127.0.0.1', '::1',  '*'] ,
+        'allowedIPs' => ['127.0.0.1', '::1',  '95.220.73.123'] ,//'*',
 
     ];
 }

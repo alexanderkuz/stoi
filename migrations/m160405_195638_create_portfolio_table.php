@@ -14,14 +14,17 @@ class m160405_195638_create_portfolio_table extends Migration
 
         $this->createTable('{{%portfolio}}', [
             'id' => $this->primaryKey(),//integer()->unsigned()
-            'type' => 'enum("catalog", "item") NOT NULL DEFAULT "catalog"', //тип записи
-            'parent_id'=>$this->integer()->unsigned()->notNull()->defaultValue(0),// Родительская запись
-            'active' => 'enum("Yes", "No") NOT NULL DEFAULT "No"', //Актив
-            'code'=>$this->string()->notNull()->unique(),// уникальный латинский код
-            'name'=>$this->string()->notNull(),// имя сервиса(услуги)
-            'sort'=>$this->integer()->unsigned()->notNull()->defaultValue(500),// Индекс сортировки.
             'created_date' => $this->dateTime()->notNull(),// дата создания
             'updated_date' => $this->dateTime()->notNull(),// дата изменния
+
+            'type' => 'enum("catalog", "item") NOT NULL DEFAULT "catalog"', //тип записи раздел или элемент
+            'parent_id'=>$this->integer()->unsigned()->notNull()->defaultValue(0),// Родительская запись
+            'active' => 'enum("Yes", "No") NOT NULL DEFAULT "No"', //Актив
+
+            'name'=>$this->string()->notNull(),// имя страницы(раздела)
+            'code'=>$this->string()->notNull()->unique(),// уникальный латинский код
+            'sort'=>$this->integer()->unsigned()->notNull()->defaultValue(500),// Индекс сортировки.
+
             'picture'=>$this->string(),// Имя картинка
             'path_picture'=>$this->string(),// Путь до картинка
 
@@ -34,12 +37,14 @@ class m160405_195638_create_portfolio_table extends Migration
             'keywords'=>$this->string(),// meta-тег словосочетаний страницы
             'description'=>$this->string(),// meta-тег описание станицы
 
+
         ], $tableOptions);
 
-        $this->createIndex('parent_id_type_sort','{{%services}}',['parent_id','type','sort']);
-        $this->createIndex('parent_id','{{%services}}',['parent_id']);
-        $this->createIndex('type','{{%services}}',['type']);
-        $this->createIndex('sort','{{%services}}','sort');
+        $this->createIndex('parent_id_type_sort','{{%portfolio}}',['parent_id','type','sort']);
+     //   $this->createIndex('parent_id','{{%portfolio}}',['parent_id']);
+     //   $this->createIndex('type','{{%portfolio}}',['type']);
+     //   $this->createIndex('sort','{{%portfolio}}','sort');
+
     }
 
     public function down()

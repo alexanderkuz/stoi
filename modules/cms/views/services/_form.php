@@ -1,8 +1,13 @@
 <?php
-
+//use Yii;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
+//use dosamigos\ckeditor\CKEditor;
+
+
+use mihaildev\ckeditor\CKEditor;
+
+use mihaildev\elfinder\ElFinder;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Services */
@@ -58,7 +63,7 @@ use dosamigos\ckeditor\CKEditor;
 
 
 
-    <?= $form->field($model, 'preview_text')->widget(CKEditor::className(), [
+    <?/*= $form->field($model, 'preview_text')->widget(CKEditor::className(), [
         // 'options' => ['rows' => 6],
         'preset' => 'basic',
         'clientOptions'=>[
@@ -66,9 +71,17 @@ use dosamigos\ckeditor\CKEditor;
             'filebrowserImageUploadUrl'=> Yii::getAlias('@web')."/uploads/iaupload.php"
             //'tags'=>'<br>'
         ],
+    ]); */?>
+
+    <?= $form->field($model, 'preview_text')->widget(CKEditor::className(), [
+        // 'options' => ['rows' => 6],
+        'editorOptions'=>ElFinder::ckeditorOptions(['elfinder'],
+            [
+                'preset' => 'basic',
+            ]),
     ]); ?>
 
-    <?= $form->field($model, 'detail_text')->widget(CKEditor::className(), [
+    <?/*= $form->field($model, 'detail_text')->widget(CKEditor::className(), [
         // 'options' => ['rows' => 6],
         //'preset' => 'basic',
         'clientOptions'=>[
@@ -76,8 +89,29 @@ use dosamigos\ckeditor\CKEditor;
             'filebrowserImageUploadUrl'=> Yii::getAlias('@web')."/uploads/iaupload.php"
             //'tags'=>'<br>'
         ],
-    ]); ?>
+    ]); */?>
 
+    <?= $form->field($model, 'detail_text')->widget(CKEditor::className(), [
+        // 'options' => ['rows' => 6],
+        'editorOptions'=>ElFinder::ckeditorOptions(['elfinder'],
+            [/* Some CKEditor Options */
+                'preset' => 'full',
+            ]),
+
+        /*'clientOptions'=>[
+          //  'dir' => '/old',
+            //'uploadDir'=>Yii::getAlias('@frontend/web/old'),
+           // 'extraPlugins' => 'imageuploader',
+            'editorOptions' => ElFinder::ckeditorOptions(['elfinder'],[/* Some CKEditor Options */
+        //]),
+        // 'enterMode' => 1,
+        //   'filebrowserImageBrowseUrl' => $kcfinderUrl . '/browse.php?opener=ckeditor&type=images&dir=/old',
+        //  'filebrowserImageUploadUrl' => $kcfinderUrl . '/upload.php?opener=ckeditor&type=images&dir=/old',
+        //'filebrowserImageUploadUrl'=> Yii::getAlias('@web')."/uploads/iaupload.php"
+        //'tags'=>'<br>'
+
+        //  ],*/
+    ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

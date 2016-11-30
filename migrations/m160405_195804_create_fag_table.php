@@ -12,16 +12,24 @@ class m160405_195804_create_fag_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%services}}', [
+        $this->createTable('{{%fag}}', [
             'id' => $this->primaryKey(),//integer()->unsigned()
-            'type' => 'enum("catalog", "item") NOT NULL DEFAULT "catalog"', //тип записи
-            'parent_id'=>$this->integer()->unsigned()->notNull()->defaultValue(0),// Родительская запись
-            'active' => 'enum("Yes", "No") NOT NULL DEFAULT "No"', //Актив
-            'code'=>$this->string()->notNull()->unique(),// уникальный латинский код
-            'name'=>$this->string()->notNull(),// имя сервиса(услуги)
-            'sort'=>$this->integer()->unsigned()->notNull()->defaultValue(500),// Индекс сортировки.
             'created_date' => $this->dateTime()->notNull(),// дата создания
             'updated_date' => $this->dateTime()->notNull(),// дата изменния
+
+            'type' => 'enum("catalog", "item") NOT NULL DEFAULT "catalog"', //тип записи раздел или элемент
+            'parent_id'=>$this->integer()->unsigned()->notNull()->defaultValue(0),// Родительская запись
+            'active' => 'enum("Yes", "No","Waiting") NOT NULL DEFAULT "Waiting"', //Актив, не активное или ждущие ответа
+
+            'name'=>$this->string()->notNull(),// имя вопроса(раздела)
+            'code'=>$this->string()->notNull()->unique(),// уникальный латинский код
+            'sort'=>$this->integer()->unsigned()->notNull()->defaultValue(500),// Индекс сортировки.
+
+            'username'=>$this->string(),// имя пользователя
+            'email' => $this->string(),//email пользователя(юзера)
+            'url' => $this->string(),// адрес сайта
+
+
             'picture'=>$this->string(),// Имя картинка
             'path_picture'=>$this->string(),// Путь до картинка
 
@@ -36,14 +44,31 @@ class m160405_195804_create_fag_table extends Migration
 
         ], $tableOptions);
 
-        $this->createIndex('parent_id_type_sort','{{%services}}',['parent_id','type','sort']);
-        $this->createIndex('parent_id','{{%services}}',['parent_id']);
-        $this->createIndex('type','{{%services}}',['type']);
-        $this->createIndex('sort','{{%services}}','sort');
+        $this->createIndex('parent_id_type_sort','{{%fag}}',['parent_id','type','sort']);
+      //  $this->createIndex('parent_id','{{%fag}}',['parent_id']);
+     //   $this->createIndex('type','{{%fag}}',['type']);
+      //  $this->createIndex('sort','{{%fag}}','sort');
+
+        $datatimes=date('Y-m-d H:i:s');
+
+        $this->batchInsert('{{%fag}}',['created_date' ,'updated_date','type','name','code','preview_text', 'detail_text' ],
+            [
+                [
+                    $datatimes,                   //'created_date'
+                    $datatimes,                   //'updated_date'
+                    'catalog',                    //'type'
+                    'Общие вопросы',           //'name'
+                    'main',                       //'code'
+                    'Общие вопросы',           //'preview_text'
+                    '<p>Общие вопросы</p>',    //'detail_text'
+                ],
+            ]
+        );
+
     }
 
     public function down()
     {
-        $this->dropTable('fag_table');
+        $this->dropTable('{{%fag}}');
     }
 }

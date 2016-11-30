@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute'=>'detail_text',
-                'format'=>'html',
+                'format'=>'raw',
 
             ],
             'title',

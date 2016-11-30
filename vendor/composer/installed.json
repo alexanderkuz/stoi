@@ -268,7 +268,8 @@
         "keywords": [
             "codeception",
             "yii2"
-        ]
+        ],
+        "abandoned": "codeception/codeception"
     },
     {
         "name": "yiisoft/yii2-bootstrap",

@@ -12,16 +12,19 @@ class m160405_195732_create_page_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%services}}', [
+        $this->createTable('{{%page}}', [
             'id' => $this->primaryKey(),//integer()->unsigned()
-            'type' => 'enum("catalog", "item") NOT NULL DEFAULT "catalog"', //тип записи
-            'parent_id'=>$this->integer()->unsigned()->notNull()->defaultValue(0),// Родительская запись
-            'active' => 'enum("Yes", "No") NOT NULL DEFAULT "No"', //Актив
-            'code'=>$this->string()->notNull()->unique(),// уникальный латинский код
-            'name'=>$this->string()->notNull(),// имя сервиса(услуги)
-            'sort'=>$this->integer()->unsigned()->notNull()->defaultValue(500),// Индекс сортировки.
             'created_date' => $this->dateTime()->notNull(),// дата создания
             'updated_date' => $this->dateTime()->notNull(),// дата изменния
+
+            'type' => 'enum("catalog", "item") NOT NULL DEFAULT "catalog"', //тип записи раздел или элемент
+            'parent_id'=>$this->integer()->unsigned()->notNull()->defaultValue(0),// Родительская запись
+            'active' => 'enum("Yes", "No") NOT NULL DEFAULT "No"', //Актив
+
+            'name'=>$this->string()->notNull(),// имя страницы(раздела)
+            'code'=>$this->string()->notNull()->unique(),// уникальный латинский код
+            'sort'=>$this->integer()->unsigned()->notNull()->defaultValue(500),// Индекс сортировки.
+
             'picture'=>$this->string(),// Имя картинка
             'path_picture'=>$this->string(),// Путь до картинка
 
@@ -36,19 +39,51 @@ class m160405_195732_create_page_table extends Migration
 
         ], $tableOptions);
 
-        $this->createIndex('parent_id_type_sort','{{%services}}',['parent_id','type','sort']);
-        $this->createIndex('parent_id','{{%services}}',['parent_id']);
-        $this->createIndex('type','{{%services}}',['type']);
-        $this->createIndex('sort','{{%services}}','sort');
+        $this->createIndex('parent_id_type_sort','{{%page}}',['parent_id','type','sort']);
+     //   $this->createIndex('parent_id','{{%page}}',['parent_id']);
+      //  $this->createIndex('type','{{%page}}',['type']);
+      //  $this->createIndex('sort','{{%page}}','sort');
+
+        $datatimes=date('Y-m-d H:i:s');
+
+        $this->batchInsert('{{%page}}',['created_date' ,'updated_date','type','name','code','preview_text', 'detail_text' ],
+            [
+                [
+                    $datatimes,                   //'created_date'
+                    $datatimes,                   //'updated_date'
+                    'item',                       //'type'
+                    'Главная страница',           //'name'
+                    'main',                       //'code'
+                    'Главная страница',           //'preview_text'
+                    '<p>Главная страница</p>',    //'detail_text'
+                ],
+                [
+                    $datatimes,                   //'created_date'
+                    $datatimes,                   //'updated_date'
+                    'item',                       //'type'
+                    'О нас',                      //'name'
+                    'about',                      //'code'
+                    'О нас',                      //'preview_text'
+                    '<p>О нас</p>',               //'detail_text'
+                ],
+                [
+                    $datatimes,                   //'created_date'
+                    $datatimes,                   //'updated_date'
+                    'item',                       //'type'
+                    'Контакты',                   //'name'
+                    'contact',                    //'code'
+                    'Контакты',                   //'preview_text'
+                    '<p>Контакты</p>',            //'detail_text'
+                ],
+            ]
+        );
+
 
     }
-/*
-$this->createTable('page_table', [
-            'id' => $this->primaryKey()
-        ]);
-*/
+
+
     public function down()
     {
-        $this->dropTable('page_table');
+        $this->dropTable('{{%page}}');
     }
 }

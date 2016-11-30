@@ -33,7 +33,7 @@ class Controller extends BaseController{
 
 		$this->_options['roots'] = [];
 
-		foreach($this->roots as $root){
+		foreach($this->roots as $key=>$root){
 			if(is_string($root))
 				$root = ['path' => $root];
 
@@ -45,11 +45,25 @@ class Controller extends BaseController{
 			/** @var \mihaildev\elfinder\volume\Local $root*/
 
 			if($root->isAvailable())
-				$this->_options['roots'][] = $root->getRoot();
+			{
+				$this->_options['roots'][$key] = $root->getRoot();
+				$this->_options['roots'][$key]['plugin']['AutoResize'] = [
+					'enable'         => true,       // For control by volume driver
+					'maxWidth'       => 1024,       // Path to Water mark image
+					'maxHeight'      => 1024,       // Margin right pixel
+					'quality'        => 75,         // JPEG image save quality
+
+						'preserveExif'   => false,      // Preserve EXIF data (Imagick only)
+ 				'forceEffect'    => false,      // For change quality of small images
+					'targetType'     => IMG_GIF|IMG_JPG|IMG_PNG|IMG_WBMP // Target image formats ( bit-field )
+				];
+			}
 		}
 
+		$this->_options['bind']['upload.presave'] []= 'Plugin.AutoResize.onUpLoadPreSave';
+
 		if(!empty($this->watermark)){
-			$this->_options['bind']['upload.presave'] = 'Plugin.Watermark.onUpLoadPreSave';
+			$this->_options['bind']['upload.presave'][] = 'Plugin.Watermark.onUpLoadPreSave';
 
 			if(is_string($this->watermark)){
 				$watermark = [

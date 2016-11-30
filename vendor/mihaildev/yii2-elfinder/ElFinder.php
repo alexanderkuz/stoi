@@ -78,7 +78,8 @@ class ElFinder extends BaseWidjet{
 		return ArrayHelper::merge([
 			'filebrowserBrowseUrl' => self::getManagerUrl($id, $params),
 			'filebrowserImageBrowseUrl' => self::getManagerUrl($id, ArrayHelper::merge($params, ['filter'=>'image'])),
-			'filebrowserFlashBrowseUrl' => self::getManagerUrl($id, ArrayHelper::merge($params, ['filter'=>'flash'])),
+			//'filebrowserFlashBrowseUrl' => self::getManagerUrl($id, ArrayHelper::merge($params, ['filter'=>'flash'])),
+			'filebrowserFlashBrowseUrl' => self::getManagerUrl($id, $params),
 		], $options);
 	}
 
